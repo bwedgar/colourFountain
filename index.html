@@ -60,9 +60,34 @@
       if (counter > 100) randomize()
     }
 
-
-  
     setInterval(calculateColor, 50)
+    /* BASIC
+red=b2
+green=b3
+blue=b4
+redInc=bit0
+redDec=bit1
+greenInc=bit2
+greenDec=bit3
+blueInc=bit4
+blueDec=bit5
+counter=b5
+randomize:
+counter=0
+random w0
+calculateColor:
+red=red+redInc-redDec MIN 0 Max 100
+green=green+greenInc-greenDec MIN 0 Max 100
+blue=blue+blueInc-blueDec MIN 0 Max 100
+pulsout (1,red*100)
+pulsout (2,green*100)
+pulsout (4,blue*100)
+counter=count+1
+pause 100 ;100 milliseconds
+if counter>100 goto randomize
+goto calculateColor
+
+    */
   </script>
 </body>
 
