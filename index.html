@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<!-- bwedgar.github.io/colourFountain   -->
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="apple-touch-icon" href="launch3.png">
+  <link rel="apple-touch-startup-image" href="launch3.png">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="canonical" href="https://bwedgar.github.io/PushToTelescope" />
+
+  <title>Document</title>
+  <meta name="apple-mobile-web-app-title" content="Push To Telescope">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+  <script src="https://bwedgar.github.io/buttons/buttons.js"></script>
+  <!-- <script src="../buttons/buttons.js"></script> -->
+
+  <!-- <script src="sw.js"></script> -->
+
+</head>
+
+
+<body>
+  <script>
+    red = 0
+    blue = 0
+    green = 150
+    var redInc = Math.floor(Math.random() * 2)
+    var redDec = Math.floor(Math.random() * 2)
+    var greenInc = Math.floor(Math.random() * 2)
+    var greenDec = Math.floor(Math.random() * 2)
+    var blueInc = Math.floor(Math.random() * 2)
+    var blueDec = Math.floor(Math.random() * 2)
+
+    counter = 0
+    randomize = () => {
+      redInc = Math.floor(Math.random() * 2)
+      redDec = Math.floor(Math.random() * 2)
+      greenInc = Math.floor(Math.random() * 2)
+      greenDec = Math.floor(Math.random() * 2)
+      blueInc = Math.floor(Math.random() * 2)
+      blueDec = Math.floor(Math.random() * 2)
+
+      counter = 0
+    }
+
+    calculateColor = () => {
+      document.body.style.cssText = `background:rgb(${red*255/100},${green*255/100},${blue*255/100}`
+      console.log(`redInc ${redInc} red; ${red}  green: ${green} blue: ${blue}`)
+      red = Math.max(Math.min(red + redInc - redDec, 100), 0)
+      green = Math.max(Math.min(green + greenInc - greenDec, 100), 0)
+      blue = Math.max(Math.min(blue + blueInc - blueDec, 100), 0)
+      counter++
+      if (counter > 100) randomize()
+    }
+
+    setInterval(calculateColor, 50)
+  </script>
+</body>
+
+</html>
