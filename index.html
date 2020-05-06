@@ -27,7 +27,7 @@
 
 
 <body>
-      red: <input type="checkbox" onchange="javascript: alert()"/>
+      red: <input type="checkbox" onchange="javascript: function(){alert()}"/>
 
 
   <script>
@@ -45,7 +45,7 @@
 
 
     calculateColor = () => {
-      document.body.style.cssText = `background:rgb(${red*255/100},${green*255/100},${blue*255/100}`
+     // document.body.style.cssText = `background:rgb(${red*255/100},${green*255/100},${blue*255/100}`
       console.log(`redInc ${redInc} redDec ${redDec} greenInc ${greenInc} greenDec ${greenDec} blueInc ${blueInc} blueDec ${blueDec}  red: ${red}  green: ${green} blue: ${blue}`)
       red = Math.max(Math.min(red + redInc - redDec, 100), 0)
       green = Math.max(Math.min(green + greenInc - greenDec, 100), 0)
